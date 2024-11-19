@@ -18,7 +18,6 @@ public class PopupController : MonoBehaviour
 
     private void Init()
     {
-        _wait = new WaitForSeconds(_deactiveTime);
         _popupButton = GetComponent<Button>();
         SubscribeEvent();
     }
@@ -26,23 +25,28 @@ public class PopupController : MonoBehaviour
     private void SubscribeEvent()
     {
         _popupButton.onClick.AddListener(Activate);
+        Debug.Log("ÀÌº¥Æ® ÀÛµ¿1");
     }
 
     private void Activate()
     {
         _popup.gameObject.SetActive(true);
+        Debug.Log("ÆË¾÷ ¶ç¿ì±â");
         GameManager.Intance.Pause();
+        Debug.Log("ÆË¾÷ ¶ç¿ì±â2");
         StartCoroutine(DeactivateRoutine());
     }
 
     private void Deactivate()
     {
         _popup.gameObject.SetActive(false);
+        Debug.Log("ÆË¾÷ Á¦°Å");
     }
 
     private IEnumerator DeactivateRoutine()
     {
-        yield return _wait;
+        yield return new WaitForSecondsRealtime(_deactiveTime);
+        Debug.Log("2ÃÊ ´ë±â");
         Deactivate();
     }
 }
