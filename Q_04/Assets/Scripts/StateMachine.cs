@@ -11,6 +11,7 @@ public class StateMachine
 {
     private Dictionary<StateType, PlayerState> _stateContainer;
     public StateType CurrentType { get; private set; }
+    // 여기서 오버플로우 문제 발생..
     private PlayerState CurrentState => _stateContainer[CurrentType];
 
     public StateMachine(params PlayerState[] states)
@@ -37,8 +38,12 @@ public class StateMachine
 
     public void ChangeState(StateType state)
     {
-        CurrentState.Exit();
-        CurrentType = state;
-        CurrentState.Enter();
+        // 상태를 변경해주는데 조건이 없음
+        if (CurrentType != state)
+        {
+            CurrentState.Exit();
+            CurrentType = state;
+            CurrentState.Enter();
+        }      
     }
 }
