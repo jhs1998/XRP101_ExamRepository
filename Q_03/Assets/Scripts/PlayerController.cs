@@ -8,11 +8,12 @@ public class PlayerController : MonoBehaviour
     [field: Range(0, 100)]
     public int Hp { get; private set; }
 
-    private AudioSource _audio;
+    [SerializeField] GameObject player;
+    [SerializeField] AudioSource _audio;
 
     private void Awake()
     {
-        Init();
+        //Init();
     }
 
     private void Init()
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         _audio.Play();
+        Destroy(player, 1f);
         gameObject.SetActive(false);
     }
 }
