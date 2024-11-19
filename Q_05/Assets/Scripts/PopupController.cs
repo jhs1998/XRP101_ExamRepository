@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PopupController : MonoBehaviour
 {
     [SerializeField] private float _deactiveTime;
-    private WaitForSeconds _wait;
+    [SerializeField] GameObject cube;
     private Button _popupButton;
 
     [SerializeField] private GameObject _popup;
@@ -18,7 +18,6 @@ public class PopupController : MonoBehaviour
 
     private void Init()
     {
-        _wait = new WaitForSeconds(_deactiveTime);
         _popupButton = GetComponent<Button>();
         SubscribeEvent();
     }
@@ -26,23 +25,29 @@ public class PopupController : MonoBehaviour
     private void SubscribeEvent()
     {
         _popupButton.onClick.AddListener(Activate);
+        Debug.Log("이벤트 작동1");
     }
 
     private void Activate()
     {
         _popup.gameObject.SetActive(true);
-        GameManager.Intance.Pause();
+        Debug.Log("팝업 띄우기");
+        cube.GetComponent<ObjectRotater>().Pause();
+        //GameManager.Intance.Pause();
         StartCoroutine(DeactivateRoutine());
     }
 
     private void Deactivate()
     {
         _popup.gameObject.SetActive(false);
+        cube.GetComponent<ObjectRotater>().RePause();
+        Debug.Log("팝업 제거");
     }
 
     private IEnumerator DeactivateRoutine()
     {
-        yield return _wait;
+        yield return new WaitForSecondsRealtime(_deactiveTime);
+        Debug.Log("2초 대기");
         Deactivate();
     }
 }

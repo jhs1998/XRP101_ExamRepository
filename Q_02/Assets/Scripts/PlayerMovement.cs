@@ -28,7 +28,10 @@ public class PlayerMovement : MonoBehaviour
         direction.z = Input.GetAxisRaw("Vertical");
 
         if (direction == Vector3.zero) return;
-        
+
+        // 상하좌우 키를 동시 입력하면 대각선은 길어지기에 방향을 정규화시키는 Normalize()사용
+        direction.Normalize();
+
         transform.Translate(_status.MoveSpeed * Time.deltaTime * direction);
     }
 }

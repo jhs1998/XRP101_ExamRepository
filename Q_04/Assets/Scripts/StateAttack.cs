@@ -43,10 +43,18 @@ public class StateAttack : PlayerState
             );
 
         IDamagable damagable;
+        // 값이 없을때 오류가 남
         foreach (Collider col in cols)
         {
             damagable = col.GetComponent<IDamagable>();
-            damagable.TakeHit(Controller.AttackValue);
+            if (damagable != null)
+            {
+                damagable.TakeHit(Controller.AttackValue);
+            }
+            else
+            {
+                Debug.Log("목표 없음");
+            }
         }
     }
 
