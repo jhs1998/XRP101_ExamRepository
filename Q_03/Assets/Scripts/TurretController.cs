@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class TurretController : MonoBehaviour
 {
+    // 발사 포인트
     [SerializeField] private Transform _muzzlePoint;
+    // 총알 오브젝트
     [SerializeField] private CustomObjectPool _bulletPool;
+    // 발사 텀
     [SerializeField] private float _fireCooltime;
     
     private Coroutine _coroutine;
@@ -19,8 +22,10 @@ public class TurretController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("이건 반응하니?");
         if (other.CompareTag("Player"))
         {
+            Debug.Log("반응하니?");
             Fire(other.transform);
         }
     }
