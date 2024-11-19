@@ -15,6 +15,7 @@ public class GameManager : SingletonBehaviour<GameManager>
 
     public void Pause()
     {
+        Debug.Log("∏ÿ√Á!");
         Time.timeScale = 0f;
     }
 

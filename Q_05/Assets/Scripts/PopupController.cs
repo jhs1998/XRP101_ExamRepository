@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PopupController : MonoBehaviour
 {
     [SerializeField] private float _deactiveTime;
-    private WaitForSeconds _wait;
+    [SerializeField] GameObject cube;
     private Button _popupButton;
 
     [SerializeField] private GameObject _popup;
@@ -32,14 +32,15 @@ public class PopupController : MonoBehaviour
     {
         _popup.gameObject.SetActive(true);
         Debug.Log("で機 嗥辦晦");
-        GameManager.Intance.Pause();
-        Debug.Log("で機 嗥辦晦2");
+        cube.GetComponent<ObjectRotater>().Pause();
+        //GameManager.Intance.Pause();
         StartCoroutine(DeactivateRoutine());
     }
 
     private void Deactivate()
     {
         _popup.gameObject.SetActive(false);
+        cube.GetComponent<ObjectRotater>().RePause();
         Debug.Log("で機 薯剪");
     }
 
