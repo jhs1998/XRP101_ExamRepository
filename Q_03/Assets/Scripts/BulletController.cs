@@ -51,6 +51,9 @@ public class BulletController : PooledBehaviour
 
     public override void ReturnPool()
     {
+        // 속도 초기화로 속도가 중첩되지 않게함
+        _rigidbody.velocity = Vector3.zero; 
+
         Pool.Push(this);
         gameObject.SetActive(false);
     }

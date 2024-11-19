@@ -424,6 +424,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3734891269375128251, guid: 92ecead7dc5a843b6b0b01f59561d387, type: 3}
+      propertyPath: _bulletPool._poolSize
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3734891269375128252, guid: 92ecead7dc5a843b6b0b01f59561d387, type: 3}
       propertyPath: m_Name
       value: Turret
