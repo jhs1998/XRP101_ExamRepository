@@ -23,7 +23,8 @@ public class PlayerController : MonoBehaviour
     public void TakeHit(int damage)
     {
         Hp -= damage;
-
+        Debug.Log($"플레이어에게 {damage}데미지");
+        Debug.Log($"남은 체력 {Hp}");
         if (Hp <= 0)
         {
             Die();

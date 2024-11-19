@@ -22,10 +22,8 @@ public class TurretController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("이건 반응하니?");
         if (other.CompareTag("Player"))
         {
-            Debug.Log("반응하니?");
             Fire(other.transform);
         }
     }

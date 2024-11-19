@@ -26,9 +26,9 @@ public class BulletController : PooledBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other
-                .GetComponent<PlayerController>()
-                .TakeHit(_damageValue);
+            // 참조시 other은 Collider이기에  PlayerController player로 TakeHit를 불러옴
+            PlayerController player = other.gameObject.GetComponent<PlayerController>();
+            player.TakeHit(_damageValue);
         }
     }
 
