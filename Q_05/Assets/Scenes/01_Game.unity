@@ -567,6 +567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deactiveTime: 2
+  cube: {fileID: 1274773032}
   _popup: {fileID: 2099332692}
 --- !u!114 &458873371
 MonoBehaviour:
@@ -792,6 +793,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 428175645417226808, guid: 17a307c6d9dbd418e8df9f4eb96edb32, type: 3}
+      propertyPath: GameObject
+      value: 
+      objectReference: {fileID: 1274773032}
     - target: {fileID: 428175645417226809, guid: 17a307c6d9dbd418e8df9f4eb96edb32, type: 3}
       propertyPath: m_RootOrder
       value: 2
